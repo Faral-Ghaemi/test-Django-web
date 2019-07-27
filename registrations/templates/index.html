@@ -1,0 +1,31 @@
+{% extends 'base_generic.html' %}
+{% block content %}
+<p>
+  Number of Teams: {{ teamha.count }}
+  <br>
+  <ul style='background-color:#D5E68D'>
+  {% for league in leagues %}
+    <li>{{league.name}}({{league.chair}}) : {{ league.team_set.all.count}}</li>
+
+  {% endfor %}
+  </ul>
+</p>
+{% if teamha %}
+    <ul>
+    {% for team in teamha %}
+
+          <li><a href="/teams/{{ team.id }}/">{{ team.name }} : {{ team.Status }} /// members : {{ team.member_set.all.count }}</a></li>
+          {% for member in team.member_set.all %}
+          <div class="members">
+            <li><p>{{member.first_name}} {{member.last_name}} : {{ member.team.name}} & League_name : {{ member.team.league}}</p>
+              </div>
+          {% endfor %}
+          <br>
+          <br>
+
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No Teams are available.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h1>{{ obj.name }}</h1>
+<ul>
+{% for member in t %}
+    <li>{{ member.first_name }}</li>
+{% endfor %}
+</ul>
+<a href="/teams/members/{{obj.id}}" class="text-danger">Manage Team Members</a>
+{{ team.member_set.count }}<br>
+<a href="/teams/update/{{obj.id}}">Update Team</a><br>
+<a href="/teams/delete/{{obj.id}}">Delete Team</a>
+{% endblock %}

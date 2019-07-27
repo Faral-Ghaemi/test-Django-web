@@ -1,0 +1,17 @@
+{% load staticfiles i18n %}
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900" rel="stylesheet" />
+<style>
+@page {
+    size: "A4";
+    margin: 2.5cm 1.5cm 3.5cm 1.5cm;
+    @bottom-center {
+        /* background: url({% static 'site/img/logo-pdf.svg' %}) no-repeat center top; */
+        background-size: auto 1.5cm;
+        padding-top: 1.8cm;
+        content: "{% trans "Donation made via www.make-impact.org" %}";
+        font: 10pt "Playfair Display";
+        text-align: center;
+        vertical-align: top;
+    }
+}
+</style>

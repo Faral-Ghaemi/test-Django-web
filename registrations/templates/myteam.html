@@ -1,0 +1,32 @@
+
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>My Teams</h1>
+    <a href="/teams/create">Create new Team</a>
+    <br>
+    <div style="margin-top:10px;">
+      {% if Team %}
+      <ul style="margin=20px;">
+
+        {% for team in Team %}
+        <li class="text-danger" style="margin=20px;">
+          <a href="/teams/{{ team.id }}" style="margin=20px;">{{team.name}}</a> ({{ team.Status }})
+        </li>
+          <div style="margin=20px;">
+            <a href="/teams/members/{{team.id}}" class="text-danger">Manage Team Members</a>
+            {{ team.member_set.count }}<br>
+            <a href="/teams/update/{{team.id}}">Update Team</a><br>
+            <a href="/teams/delete/{{team.id}}">Delete Team</a>
+              <br>
+              <br>
+              </div>
+        {% endfor %}
+      </ul>
+
+      {% else %}
+        <p>There are no Teams.</p>
+      {% endif %}
+
+    </div>
+{% endblock %}

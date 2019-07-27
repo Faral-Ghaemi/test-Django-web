@@ -1,0 +1,18 @@
+{% extends 'base_generic.html' %}
+{% block content %}
+{% if teamha %}
+    <ul>
+    {% for team in teamha %}
+
+          <li><a href="/teams/{{ team.id }}/">{{ team.name }} : {{ team.Status }} /// members : {{ team.member_set.all.count }}</a></li>
+          <li><a href="/status/qualify/{{ team.id }}/">Qualify</a></li>
+          <li><a href="/status/disqualify/{{ team.id }}/">DISQualify</a></li>
+          <br>
+          <br>
+
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No Teams are available.</p>
+{% endif %}
+{% endblock %}

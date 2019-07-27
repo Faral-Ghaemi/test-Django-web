@@ -1,0 +1,15 @@
+.sidebar-nav {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+}
+.member {
+  background-color: black;
+}
+.header {
+  font-color: yellow;
+  margin: 30px;
+  width: 240px;;
+  height: 80px;
+  background-color: black;
+}

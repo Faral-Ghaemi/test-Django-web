@@ -1,0 +1,10 @@
+django
+django_countries
+django-dotenv
+Pillow
+dj-database-url
+gunicorn
+psycopg2
+pytz
+whitenoise
+setuptools

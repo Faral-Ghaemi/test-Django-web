@@ -1,0 +1,32 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+
+    <div>
+        <h1>Add Recipe</h1>
+        <form action="." method="post">
+            {% csrf_token %}
+            <div>
+                {{ form.as_p }}
+            </div>
+            <fieldset>
+                <legend>Recipe member</legend>
+                {{ member_form.management_form }}
+                {{ member_form.non_form_errors }}
+                {% for form in member_form %}
+                    {{ form.id }}
+                    <div class="inline {{ member_form.prefix }}">
+                        {{ form.description.errors }}
+                        {{ form.description.label_tag }}
+                        {{ form.description }}
+                    </div>
+                {% endfor %}
+            </fieldset>
+          
+            <input type="submit" value="Add recipe" class="submit" />
+        </form>
+    </div>
+
+
+{% endblock %}
